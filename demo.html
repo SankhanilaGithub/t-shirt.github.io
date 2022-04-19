@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cabin&display=swap" rel="stylesheet">
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+
+
+header{
+    width: 100%;
+    height: 65vh;
+    background:linear-gradient(rgb(0,0,0,0.5),rgb(0,0,0,0.6)),
+     url('fashion8.jpg');
+    /* background-size: cover; */
+    /* background-attachment: fixed; */
+}
+.logo{
+    color: rgb(90, 9, 110);
+    font-size: 2.5em;
+
+}
+.logo span{
+    color:rgba(47, 185, 174, 0.877);
+}
+.logo span2{
+    color: rgb(212, 123, 205);
+} 
+nav1{
+    width:100%;
+    height: 80px;
+    background: rgb(249, 252, 251);
+    /* color: black; */
+    display: flex;
+    /* justify-content: space-between; */
+    align-items:center ;
+    /* padding: 0px 80px; */
+    /* position: fixed; */
+    top: 0;
+
+}
+.ins{
+  color: rgb(233, 55, 55);
+  position: relative;
+  top: 3vh;
+  font-size: 19px;
+  border: 2px solid rgb(231, 138, 231);
+  /* border-radius: 6px; */
+  border-bottom-left-radius:14px ;
+  border-top-right-radius: 14px;
+}
+.ins span3{
+  color: rgb(141, 16, 16);
+  font-size: 22px;
+}
+
+.ins2{
+  position: absolute;
+  top: 85vh;
+  left: 5vh;
+  background-color: #3c87c5;
+  color: rgb(246, 249, 252);
+  font-size: 16px;
+  border-radius: 2px;
+  border: 2px solid rgb(78, 43, 206);
+}
+
+.ins33{
+  color: aliceblue;
+}
+
+.text1{
+  color: rgb(181, 192, 247);
+  position:absolute;
+  top: 44vh;
+  left: 40%;
+  /* background-color: rgb(255, 105, 180); */
+  font-family: 'Cabin', sans-serif;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 24px;
+
+
+}
+.text2{
+  color: white;
+  position:absolute;
+  top: 27vh;
+  left: 37%;
+  /* background-color: rgb(255, 105, 180); */
+  font-family: 'Cabin', sans-serif;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 40px;
+
+}
+
+
+
+
+
+
+
+::selection{
+  color: #fff;
+  background: #007bff;
+}
+body{
+  padding: 10px;
+}
+.wrapper{
+  margin: 100px auto;
+  max-width: 1100px;
+
+  /* exp */
+  position:relative;
+  top: 8vh;
+}
+.wrapper nav{
+  display: flex;
+  justify-content: center;
+
+  /* exp */
+  /* position:absolute; */
+  /* top: vh; */
+}
+.wrapper .items{
+  display: flex;
+  max-width: 720px;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.items span{
+  padding: 7px 25px;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  color: #af43bd;
+  border-radius: 50px;
+  border: 2px solid #743094;
+  transition: all 0.3s ease;
+}
+.items span.active,
+.items span:hover{
+  color: #fff;
+  background: #aa25aa;
+}
+
+.gallery{
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+.gallery .image{
+  width: calc(100% / 4);
+  padding: 7px;
+/* width: 10em;
+height: 10em; */
+}
+.gallery .image span{
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+}
+.gallery .image img{
+  width: 100%;
+  vertical-align: middle;
+  transition: all 0.3s ease;
+}
+.gallery .image:hover img{
+  transform: scale(1.1);
+}
+.gallery .image.hide{
+  display: none;
+}
+.gallery .image.show{
+  animation: animate 0.4s ease;
+}
+@keyframes animate {
+  0%{
+    transform: scale(0.5);
+  }
+  100%{
+    transform: scale(1);
+  }
+}
+
+.preview-box{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  background: #fff;
+  max-width: 700px;
+  width: 100%;
+  z-index: 5;
+  opacity: 0;
+  pointer-events: none;
+  border-radius: 3px;
+  padding: 0 5px 5px 5px;
+  box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
+}
+.preview-box.show{
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+  transition: all 0.3s ease;
+}
+.preview-box .details{
+  padding: 13px 15px 13px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.details .title{
+  display: flex;
+  font-size: 18px;
+  font-weight: 400;
+}
+.details .title p{
+  font-weight: 500;
+  margin-left: 5px;
+}
+.details .icon{
+  color: #007bff;
+  font-style: 22px;
+  cursor: pointer;
+}
+.preview-box .image-box{
+  width: 100%;
+  display: flex;
+}
+.image-box img{
+  width: 100%;
+  border-radius: 0 0 3px 3px;
+}
+.shadow{
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+  display: none;
+  background: rgba(0,0,0,0.4);
+}
+.shadow.show{
+  display: block;
+}
+
+@media (max-width: 1000px) {
+  .gallery .image{
+    width: calc(100% / 3);
+  }
+}
+@media (max-width: 800px) {
+  .gallery .image{
+    width: calc(100% / 2);
+  }
+}
+@media (max-width: 700px) {
+  .wrapper nav .items{
+    max-width: 600px;
+  }
+  nav .items span{
+    padding: 7px 15px;
+  }
+}
+@media (max-width: 600px) {
+  .wrapper{
+    margin: 30px auto;
+  }
+  .wrapper nav .items{
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  nav .items span{
+    margin: 5px;
+  }
+  .gallery .image{
+    width: 100%;
+  }
+}
+.btn{
+    height: 3em;
+    width: 5em;
+    background-color: rgb(82, 185, 185);
+}
+</style>
+<body>
+  
+
+
+
+
+
+        <header>
+          <nav1>
+              <div class="logo">
+                  F<span2>a</span2>sh<span>io</span>n
+              </div>
+            </nav1>
+
+        </header>
+
+       
+        <!-- <div class="text1">
+          
+          Everything about fashion
+      </div> -->
+      <div class="text2">
+        Fashion Market
+        
+    </div>
+
+<spam class="ins">
+  Click on the <span3>Images</span3> to buy that products.
+  
+</spam>
+
+<spam class="ins2">
+  <a class="btn" href="https://rupztee.creator-spring.com">
+    <spam class="ins33">Get all in one page</spam>
+</a>
+ 
+</spam>
+
+
+
+
+       <div class="wrapper">
+        <!-- filter Items -->
+
+        <nav>
+          <div class="items">
+            <span class="item active" data-name="all">All</span>
+            <span class="item" data-name="t-shirt">T-shirt</span>
+            <span class="item" data-name="hoodie">Hoodie</span>
+            <!-- <span class="item" data-name="cups">Cups</span> -->
+            <span class="item" data-name="full-t-shirt">Full shirt</span>
+            <!-- <span class="item" data-name="bags">Bags</span> -->
+          </div>
+        </nav>
+        <!-- filter Images -->
+        <div class="gallery">
+    <!-- <div> -->
+          <div class="image" data-name="t-shirt">
+       
+         <a class="btn" href="https://rupztee.creator-spring.com/listing/the-dreamer-success-2022">
+            <span><img src="t_shirt1.jpg" alt=""></span>
+        </a>
+    </div>
+    <!-- </div> -->
+          <div class="image" data-name="t-shirt">
+            <a class="btn" href="https://rupztee.creator-spring.com/listing/the-dreamer-success-2022">
+              <span><img src="t_shirt2.jpg" alt=""></span>
+            </a>
+          </div>
+          <div class="image" data-name="hoodie">
+            <a class="btn" href="https://rupztee.creator-spring.com/listing/new-hunt-your-dream">
+              <span><img src="hoodie2.jpg" alt=""></span>
+            </a>
+          </div>
+          <div class="image" data-name="hoodie">
+            <a class="btn" href="https://rupztee.creator-spring.com/listing/new-hunt-your-dream">
+              <span><img src="hoodie3.jpg" alt=""></span>
+            </a>
+          </div>
+          <!-- <div class="image" data-name="cups">
+            <a class="btn" href="https://www.codingnepalweb.com/filterable-image-gallery-javascript/">
+              <span><img src="fashion6.jpg" alt=""></span>
+            </a>
+          </div> -->
+          <!-- <div class="image" data-name="cups">
+          
+            <a class="btn" href="https://www.codingnepalweb.com/filterable-image-gallery-javascript/">
+              <span><img src="fashion7.jpg" alt=""></span>
+            </a>
+            </div> -->
+          <div class="image" data-name="full-t-shirt">
+            <a class="btn" href="https://rupztee.creator-spring.com/listing/new-hunt-your-dream">
+              <span><img src="full_shirt1.jpg" alt=""></span>
+            </a>
+          </div>
+          <div class="image" data-name="full-t-shirt">
+            <a class="btn" href="https://rupztee.creator-spring.com/listing/the-dreamer-success-2022">
+              <span><img src="full_shirt2.jpg" alt=""></span>
+            </a>
+          </div>
+
+          <!-- <div class="image" data-name="bags">
+            <a class="btn" href="https://www.codingnepalweb.com/filterable-image-gallery-javascript/">
+              <span><img src="hat2.jpg" alt=""></span>
+            </a>
+          </div>
+
+          <div class="image" data-name="bags">
+            <a class="btn" href="https://www.codingnepalweb.com/filterable-image-gallery-javascript/">
+              <span><img src="hat2.jpg" alt=""></span>
+            </a>
+          </div> -->
+
+        </div>
+      </div>
+      <!-- fullscreen img preview box -->
+      <div class="preview-box">
+        <div class="details">
+          <span class="title">Image Category: <p></p></span>
+          <span class="icon fas fa-times"></span>
+        </div>
+        <div class="image-box"><img src="" alt=""></div>
+      </div>
+      <div class="shadow"></div>
+      
+      
+      <script>
+
+
+//  alert('These all are Teespring froducts. Click on the images to buy products');
+ function greet(){
+    alert('These all are Teespring products. Click on the images to buy products')
+}
+setTimeout(greet,4000);
+
+
+
+
+
+          //selecting all required elements
+const filterItem = document.querySelector(".items");
+const filterImg = document.querySelectorAll(".gallery .image");
+
+window.onload = ()=>{ //after window loaded
+  filterItem.onclick = (selectedItem)=>{ //if user click on filterItem div
+    if(selectedItem.target.classList.contains("item")){ //if user selected item has .item class
+      filterItem.querySelector(".active").classList.remove("active"); //remove the active class which is in first item
+      selectedItem.target.classList.add("active"); //add that active class on user selected item
+      let filterName = selectedItem.target.getAttribute("data-name"); //getting data-name value of user selected item and store in a filtername variable
+      filterImg.forEach((image) => {
+        let filterImges = image.getAttribute("data-name"); //getting image data-name value
+        //if user selected item data-name value is equal to images data-name value
+        //or user selected item data-name value is equal to "all"
+        if((filterImges == filterName) || (filterName == "all")){
+          image.classList.remove("hide"); //first remove the hide class from the image
+          image.classList.add("show"); //add show class in image
+        }else{
+          image.classList.add("hide"); //add hide class in image
+          image.classList.remove("show"); //remove show class from the image
+        }
+      });
+    }
+  }
+  for (let i = 0; i < filterImg.length; i++) {
+    filterImg[i].setAttribute("onclick", "preview(this)"); //adding onclick attribute in all available images
+  }
+}
+
+//fullscreen image preview function
+//selecting all required elements
+const previewBox = document.querySelector(".preview-box"),
+categoryName = previewBox.querySelector(".title p"),
+previewImg = previewBox.querySelector("img"),
+closeIcon = previewBox.querySelector(".icon"),
+shadow = document.querySelector(".shadow");
+
+function preview(element){
+  //once user click on any image then remove the scroll bar of the body, so user cant scroll up or down
+  document.querySelector("body").style.overflow = "hidden";
+  let selectedPrevImg = element.querySelector("img").src; //getting user clicked image source link and stored in a variable
+  let selectedImgCategory = element.getAttribute("data-name"); //getting user clicked image data-name value
+  previewImg.src = selectedPrevImg; //passing the user clicked image source in preview image source
+  categoryName.textContent = selectedImgCategory; //passing user clicked data-name value in category name
+  previewBox.classList.add("show"); //show the preview image box
+  shadow.classList.add("show"); //show the light grey background
+  closeIcon.onclick = ()=>{ //if user click on close icon of preview box
+    previewBox.classList.remove("show"); //hide the preview box
+    shadow.classList.remove("show"); //hide the light grey background
+    document.querySelector("body").style.overflow = "auto"; //show the scroll bar on body
+  }
+}
+      </script>
+</body>
+</html>
